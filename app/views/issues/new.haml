@@ -1,0 +1,12 @@
+%h1
+  Create a new issue
+= error_messages_for :issue
+- form_for(:issue, :url => admin_issues_path) do |f|
+  %p
+    %b
+      Date
+    %br/
+    = f.date_select :date
+  %p
+    = submit_tag 'Create'
+

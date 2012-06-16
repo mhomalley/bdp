@@ -1,0 +1,20 @@
+%h1
+  Edit the date of this issue
+= error_messages_for :issue
+- form_for(:issue, :url => admin_issue_path(:id => d(@issue.date)), :html => { :method => :put }) do |f|
+  %p
+    %b
+      Date
+    %br/
+    = f.date_select :date
+  /%p
+  /  %b
+  /    Front page image
+  /  %br/
+  /  // = f.file_field :front_page_image
+  %p
+    = submit_tag 'Update'
+= link_to 'List All Issues', admin_issues_path
+|
+= link_to 'View The Front Page Image', admin_issue_path(:id => d(@issue.date))
+

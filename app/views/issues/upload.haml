@@ -1,0 +1,32 @@
+%h1
+  Upload Various Files
+= error_messages_for :issue
+%br/
+- form_for(:pdf, :url => do_upload_admin_issue_path, :html => {:enctype => "multipart/form-data"}) do |f|
+  %label{:for => "pdf_file_name"}
+    PDF File Name:
+  = f.file_field(:file_name, :size => 50)
+  %br/
+  %p
+    = submit_tag "Upload PDF File"
+%br/
+%br/
+%br/
+/- form_for(:houses, :url => do_upload_admin_issue_path, :html => {:enctype => "multipart/form-data"}) do |f|
+/  %label{:for => "houses_file_name"}
+/    Open Houses or Houses Sold File:
+/  = f.file_field(:file_name, :size => 50)
+/  %br/
+/  %p
+/    = submit_tag "Upload Open Houses or Houses Sold File"
+/%br/
+/%br/
+/%br/
+/- form_for(:ed_cart, :url => do_upload_admin_issue_path, :html => {:enctype => "multipart/form-data"}) do |f|
+/  %label{:for => "cartoon_file_name"}
+/    Editorial Cartoon File Name:
+/  = f.file_field(:file_name, :size => 50)
+/  %br/
+/  %p
+/    = submit_tag "Upload Editorial Cartoon"
+

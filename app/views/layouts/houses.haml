@@ -1,0 +1,13 @@
+!!!
+%html{"xml:lang"=>"en", "lang"=>"en", "xmlns"=>"http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{"content"=>"text/html;charset=UTF-8", "http-equiv"=>"content-type"}/
+    %meta{:name=>"author", :content=>"Berkeley Daily Planet, Berkeley California"}/
+    %meta{:name=>"description", :content=>"open homes home recent sales sale houses in berkeley oakland kensington emeryville alameda el cerrito albany east bay real estate listings"}/
+    %title
+      = @title || 'East Bay Real Estate: Recent Sales and Open Homes: Berkeley, Oakland, Alameda, Kensington, Emeryville, El Cerrito, Albany, Contra Costa CA California'
+    = stylesheet_link_tag 'houses'
+  %body
+    = yield
+    = partial_include("public/footer")
+  

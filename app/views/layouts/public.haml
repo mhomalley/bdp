@@ -1,0 +1,26 @@
+!!!
+%html{"xml:lang"=>"en", "lang"=>"en", "xmlns"=>"http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{"content"=>"text/html;charset=UTF-8", "http-equiv"=>"content-type"}/
+    /%meta{"content"=>"3000", "http-equiv"=>"Refresh"}/
+    = stylesheet_link_tag 'public', :media => 'all'
+    = partial_include("public/header")
+    = auto_discovery_link_tag(:rss, href='http://berkeleydailyplanet.com/feeds/headlines.rss', {:title => 'Berkeley Daily Planet Headlines'} )
+  %body
+    #container
+      <!--[if lt IE 7]>
+      <div id="ie6anddown">
+      <![endif]-->
+      #tops
+        = partial_include("public/top_head")
+      #main
+        = yield
+      = partial_include("public/foot_nav")
+      = partial_include("public/footer")
+      /%br/
+      /= file_include("goo-wide-main")
+
+      <!--[if lt IE 7]>
+      </div>
+      <![endif]-->
+

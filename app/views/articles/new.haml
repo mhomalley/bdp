@@ -1,0 +1,9 @@
+%h1
+  Add a new article for issue:
+  = d(@issue.date)
+  
+  - @submit_title ='Create this Article'
+
+- form_for(:article, :url => admin_issue_articles_path, :html => {:enctype => "multipart/form-data"}) do |@f|
+  = render_partial('form')
+

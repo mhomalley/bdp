@@ -1,0 +1,18 @@
+= error_messages_for :image
+
+%h1
+  New Stand-Alone Front Page Image
+- form_for(:image, :url => admin_issue_images_path(:issue_id => d(@issue.date)), :html => {:enctype => "multipart/form-data"}) do |@f|
+  = render(:partial => 'form')
+  %p
+    = submit_tag "Create Image"
+      
+- unless @issue.front_page_image.nil?
+  %br/
+  %br/
+  %h1
+    Current Front Page Image:
+  = @issue.front_page_image.file_name
+  %br/
+  = front_page_photo
+

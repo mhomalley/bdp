@@ -1,0 +1,69 @@
+= error_messages_for :image
+- if @article.nil?
+  %h1
+    Listing Front Page Image for Issue:
+    = h d(@issue.date)
+  %table
+    %tr
+      %th
+        ID
+      %th
+        File name
+      %th
+        Author
+      %th
+        Caption
+    %tr
+      %td
+        = h @image.id 
+        \&nbsp;
+      %td
+        = h @image.file_name
+      %td
+        = h @image.author
+      %td
+        = h @image.caption
+      %td
+        = link_to 'Show', admin_issue_image_path(:id => @image.id, :issue_id => d(@issue.date))
+      %td
+        = link_to 'Edit', edit_admin_issue_image_path(:id => @image.id, :issue_id => d(@issue.date))
+      %td
+        = link_to 'Destroy', admin_issue_image_path(:id => @image.id, :issue_id => d(@issue.date)), :confirm => 'Are you sure?', :method => :delete
+  %br/
+  = link_to 'New Front Page Image', new_admin_issue_image_path
+  
+-else #MHO Currently, we can't get here
+  %h1
+    Listing images for article:
+    = h @article.id
+  %table
+    %tr
+      %th
+        ID
+      %th
+        File name
+      %th
+        Author
+      %th
+        Caption
+    - for image in @images
+      %tr
+        %td
+          = h image.id 
+          \&nbsp;
+        %td
+          = h image.file_name
+        %td
+          = h image.author
+        %td
+          = h image.caption
+        %td
+          = link_to 'Show', admin_issue_article_image_path(:id => image.id, :article_id => @article.id, :issue_id => d(@issue.date))
+        %td
+          = link_to 'Edit', edit_admin_issue_article_image_path(:id => image.id, :article_id => @article.id, :issue_id => d(@issue.date))
+        %td
+          = link_to 'Destroy', admin_issue_article_image_path(:id => image.id, :article_id => @article.id, :issue_id => d(@issue.date)), :confirm => 'Are you sure?', :method => :delete
+  %br/
+  /= link_to 'New image', new_admin_issue_article_image_path
+
+

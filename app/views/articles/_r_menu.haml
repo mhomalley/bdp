@@ -1,0 +1,31 @@
+- if image = @issue.front_page_image
+  %h1
+    Front Page Image: 
+  = link_to image.file_name, edit_admin_issue_image_path(:id => image.id, :issue_id => d(@issue.date))
+%h1
+  Articles:
+%br/
+- for article in @articles
+  %span.red
+    = article.priority
+  = article.headline
+  %i
+    = article.author
+  = article.section
+  %br/
+  %table
+    %tr
+      %td
+        = article.id
+      %td
+        = link_to 'Edit', edit_admin_issue_article_path(:id => article)
+      %td
+        = link_to 'Preview', public_article_path(:storyID => article.id)
+      %td
+        = link_to 'Delete', admin_issue_article_path(:id => article), :confirm => 'Are you sure?', :method => :delete
+  Photos:
+  - @images = article.images
+  - for image in @images
+    = link_to image.file_name, edit_admin_issue_image_path(:id => image.id, :issue_id => d(@issue.date))
+  %hr{:size => 1}/
+ 

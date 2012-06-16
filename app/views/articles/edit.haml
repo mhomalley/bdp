@@ -1,0 +1,14 @@
+%h1
+  Modify this article.
+
+- @submit_title ='Modify this Article'
+
+- form_for(:article, :url => admin_issue_article_path(:id => @article), :html => {:method => :put, :enctype => "multipart/form-data"}) do |@f|
+  = render_partial('form')
+%br/
+%br/
+%p
+  Current Images:
+= article_photos(@article)
+
+

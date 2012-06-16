@@ -1,0 +1,29 @@
+= error_messages_for :article
+
+%p
+  %b
+    Issue:
+  = h @article.issue_id
+%p
+  %b
+    Author:
+  = h @article.author
+%p
+  %b
+    Headline:
+  = h @article.headline
+%p
+  %b
+    Copy:
+  = h @article.copy
+%p
+  %b
+    Section:
+  = h @article.section
+%p
+  %b
+    Priority:
+  = h @article.priority
+= link_to 'Edit', edit_admin_issue_article_path(:id => @article)
+|
+= link_to 'Back', admin_issue_articles_path

@@ -1,0 +1,21 @@
+%h1
+  Login:
+- form_for(:user, @user, :url => {:action => 'do_login'}) do |@f|
+  %table
+    %tr
+      %td
+        %label{"for"=>"user_name"}
+          user name
+      %td
+        %input#user_name{"name"=>"user_name", "type"=>"text"}/
+    %tr
+      %td
+        %label{"for"=>"password"}
+          password
+      %td
+        %input#password{"name"=>"password", "type"=>"password"}/
+    %tr
+      %td
+      %td
+        = submit_tag('login')
+
